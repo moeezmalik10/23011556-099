@@ -7,7 +7,7 @@ This project solves ten exercises based on control structures and arrays in C#.
 All exercises are implemented in separate classes, but all are contained within a single file named Assignment.cs.
 The program uses a menu to let users select and run any exercise.
 
-File Structure
+**File Structure**
 
 **23011556-099/**
 
