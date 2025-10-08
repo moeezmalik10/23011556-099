@@ -22,20 +22,33 @@ Ten exercise classes, each with a Run() method.
 **Exercises Summary**
 
 No	Exercise	Description
+
 1	Even or Odd Checker	Checks if a number is even or odd using if-else
+
 2	Simple Calculator	Performs +, -, *, / using switch-case
+
 3	Grade Evaluator	Displays grade A–F based on marks
+
 4	Sum of Natural Numbers	Calculates sum of 1 to n using for loop
+
 5	Multiplication Table	Prints table of any number up to 10
+
 6	Factorial Calculator	Finds factorial using while loop
+
 7	Reverse a Number	Reverses digits of a given number
+
 8	Array Max and Min	Finds maximum and minimum in array
+
 9	Array Even and Odd Count	Counts even and odd numbers in array
+
 10	Array Search	Searches for a number in array (linear search)
+
 How to Run
 
 1. Open Assignment.cs in Visual Studio or VS Code.
+   
 2. Build and run the program.
+  
 3. The menu will appear.
 
 Enter a number (1–10) to run the corresponding exercise.
