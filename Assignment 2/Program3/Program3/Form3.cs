@@ -1,0 +1,29 @@
+﻿using System;
+using System.Linq;
+using System.Windows.Forms;
+
+namespace Program3
+{
+    public partial class Form3 : Form
+    {
+        public Form3()
+        {
+            InitializeComponent();
+            this.Load += Form3_Load;
+        }
+
+        private void Form3_Load(object? sender, EventArgs e)
+        {
+            RefreshGrid();
+        }
+
+        private void RefreshGrid()
+        {
+            var borrowed = Form2.Books
+                .Where(b => !b.IsAvailable)
+                .Select(b => new { b.Id, b.Title, b.Author })
+                .ToList();
+            dataGridView1.DataSource = borrowed;
+        }
+    }
+}

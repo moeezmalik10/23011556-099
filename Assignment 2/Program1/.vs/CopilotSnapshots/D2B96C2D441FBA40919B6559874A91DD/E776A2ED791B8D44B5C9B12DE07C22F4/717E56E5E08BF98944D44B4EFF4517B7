@@ -1,0 +1,37 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Program1
+{
+    public partial class Form2 : Form
+    {
+        public Form2()
+        {
+            InitializeComponent();
+            button1.Click += button1_Click;
+            button3.Click += Button3_Click;
+        }
+
+        public Form2(string username) : this()
+        {
+            label1.Text = $"Welcome {username}";
+        }
+
+        private void Button3_Click(object? sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e, string username)
+        {
+            MessageBox.Show($"Profile {username}");
+        }
+    }
+}

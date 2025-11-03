@@ -1,0 +1,26 @@
+namespace Program3
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string userInput = textBox1.Text;
+            string password = textBox2.Text;
+            if (userInput == "admin" && password == "1234")
+            {
+                var dashboard = new Form2();
+                dashboard.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Invalid credentials.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+    }
+}

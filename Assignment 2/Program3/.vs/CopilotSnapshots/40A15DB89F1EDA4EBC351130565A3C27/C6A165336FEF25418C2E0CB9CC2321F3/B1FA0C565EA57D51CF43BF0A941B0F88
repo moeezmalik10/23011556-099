@@ -1,0 +1,89 @@
+﻿using System;
+using System.Linq;
+using System.Windows.Forms;
+
+namespace Program3
+{
+    public partial class Form2 : Form
+    {
+        // simple in-memory store kept inside Form2 as requested
+        public class Book
+        {
+            public int Id { get; set; }
+            public string Title { get; set; } = string.Empty;
+            public string Author { get; set; } = string.Empty;
+            public bool IsAvailable { get; set; } = true;
+        }
+
+        public static System.Collections.Generic.List<Book> Books { get; } = new System.Collections.Generic.List<Book>();
+        private static int _nextId = 1;
+
+        public Form2()
+        {
+            InitializeComponent();
+            // wire up button clicks
+            button1.Click += Button1_Click; // Add Book
+            button2.Click += Button2_Click; // Borrow Book
+            button3.Click += Button3_Click; // View Borrowed Books
+
+            // seed some books
+            if (!Books.Any())
+            {
+                AddBook("The Hobbit", "J.R.R. Tolkien");
+                AddBook("1984", "George Orwell");
+                AddBook("Clean Code", "Robert C. Martin");
+            }
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddBook(string title, string author)
+        {
+            Books.Add(new Book { Id = _nextId++, Title = title, Author = author });
+        }
+
+        private void Button1_Click(object? sender, EventArgs e)
+        {
+            // simple prompts to add a book
+            var title = Microsoft.VisualBasic.Interaction.InputBox("Enter book title:", "Add Book");
+            if (string.IsNullOrWhiteSpace(title)) return;
+            var author = Microsoft.VisualBasic.Interaction.InputBox("Enter author:", "Add Book");
+            if (string.IsNullOrWhiteSpace(author)) return;
+            AddBook(title, author);
+            MessageBox.Show("Book added.");
+        }
+
+        private void Button2_Click(object? sender, EventArgs e)
+        {
+            // list available books and ask for id to borrow
+            var available = Books.Where(b => b.IsAvailable).ToList();
+            if (!available.Any())
+            {
+                MessageBox.Show("No available books to borrow.");
+                return;
+            }
+
+            var listText = string.Join(Environment.NewLine, available.Select(b => $"{b.Id}: {b.Title} by {b.Author}"));
+            var prompt = "Available books:\r\n" + listText + "\r\n\r\nEnter the Id of the book to borrow:";
+            var input = Microsoft.VisualBasic.Interaction.InputBox(prompt, "Borrow Book");
+            if (!int.TryParse(input, out var id)) return;
+            var book = Books.FirstOrDefault(b => b.Id == id && b.IsAvailable);
+            if (book == null)
+            {
+                MessageBox.Show("Invalid selection or book not available.");
+                return;
+            }
+            book.IsAvailable = false;
+            MessageBox.Show("Book borrowed.");
+        }
+
+        private void Button3_Click(object? sender, EventArgs e)
+        {
+            var view = new Form3();
+            view.Show();
+        }
+    }
+}

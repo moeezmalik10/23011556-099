@@ -1,0 +1,12 @@
+﻿namespace Program3
+{
+ public class Book
+ {
+ public int Id { get; set; }
+ public string Title { get; set; } = string.Empty;
+ public string Author { get; set; } = string.Empty;
+ public bool IsAvailable { get; set; } = true;
+
+ public override string ToString() => $"{Title} by {Author} {(IsAvailable ? "(Available)" : "(Borrowed)")}";
+ }
+}

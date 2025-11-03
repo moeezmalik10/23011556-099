@@ -1,0 +1,51 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
+
+namespace Program3
+{
+ public class SelectBookForm : Form
+ {
+ private ListBox _list;
+ private Button _ok;
+ private Button _cancel;
+ private List<Book> _books;
+ public int SelectedBookId { get; private set; }
+
+ public SelectBookForm(List<Book> books)
+ {
+ _books = books;
+ InitializeComponent();
+ }
+
+ private void InitializeComponent()
+ {
+ Text = "Select Book";
+ Width =400;
+ Height =400;
+ _list = new ListBox { Dock = DockStyle.Top, Height =280 };
+ foreach (var b in _books)
+ {
+ _list.Items.Add($"{b.Id}: {b.Title} by {b.Author}");
+ }
+ _ok = new Button { Text = "OK", Dock = DockStyle.Left, Width =100 };
+ _cancel = new Button { Text = "Cancel", Dock = DockStyle.Right, Width =100 };
+ _ok.Click += Ok_Click;
+ _cancel.Click += (s, e) => DialogResult = DialogResult.Cancel;
+ Controls.Add(_list);
+ var panel = new Panel { Dock = DockStyle.Bottom, Height =40 };
+ panel.Controls.Add(_ok);
+ panel.Controls.Add(_cancel);
+ Controls.Add(panel);
+ }
+
+ private void Ok_Click(object? sender, EventArgs e)
+ {
+ if (_list.SelectedIndex <0) return;
+ var sel = _books[_list.SelectedIndex];
+ SelectedBookId = sel.Id;
+ DialogResult = DialogResult.OK;
+ }
+ }
+}

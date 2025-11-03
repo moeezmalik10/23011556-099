@@ -1,0 +1,38 @@
+﻿using System.Collections.Generic;
+using System.Linq;
+
+namespace Program3
+{
+ public static class DataStore
+ {
+ private static List<Book> _books = new List<Book>();
+ private static int _nextId =1;
+
+ static DataStore()
+ {
+ // seed some books
+ AddBook(new Book { Title = "The Hobbit", Author = "J.R.R. Tolkien" });
+ AddBook(new Book { Title = "1984", Author = "George Orwell" });
+ AddBook(new Book { Title = "Clean Code", Author = "Robert C. Martin" });
+ }
+
+ public static IEnumerable<Book> Books => _books;
+
+ public static Book AddBook(Book book)
+ {
+ book.Id = _nextId++;
+ _books.Add(book);
+ return book;
+ }
+
+ public static bool BorrowBook(int id)
+ {
+ var b = _books.FirstOrDefault(x => x.Id == id);
+ if (b == null || !b.IsAvailable) return false;
+ b.IsAvailable = false;
+ return true;
+ }
+
+ public static IEnumerable<Book> GetBorrowedBooks() => _books.Where(x => !x.IsAvailable);
+ }
+}

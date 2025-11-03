@@ -1,0 +1,37 @@
+﻿using System;
+using System.Windows.Forms;
+
+namespace Program2
+{
+    public partial class Form4 : Form
+    {
+        public Form4()
+        {
+            InitializeComponent();
+
+            dataGridView1.DataSource = StudentRepository.GetAll();
+
+            var cm = new ContextMenuStrip();
+            var deleteItem = new ToolStripMenuItem("Delete");
+            deleteItem.Click += DeleteItem_Click;
+            cm.Items.Add(deleteItem);
+            dataGridView1.ContextMenuStrip = cm;
+        }
+
+        private void DeleteItem_Click(object? sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow == null) return;
+            var student = dataGridView1.CurrentRow.DataBoundItem as Student;
+            if (student == null) return;
+            var res = MessageBox.Show($"Delete {student.Name}?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (res == DialogResult.Yes)
+            {
+                StudentRepository.Remove(student);
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+        }
+    }
+}

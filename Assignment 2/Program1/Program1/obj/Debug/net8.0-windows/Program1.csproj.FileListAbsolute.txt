@@ -1,0 +1,17 @@
+C:\Users\mmmal\source\repos\Program1\Program1\bin\Debug\net8.0-windows\Program1.exe
+C:\Users\mmmal\source\repos\Program1\Program1\bin\Debug\net8.0-windows\Program1.deps.json
+C:\Users\mmmal\source\repos\Program1\Program1\bin\Debug\net8.0-windows\Program1.runtimeconfig.json
+C:\Users\mmmal\source\repos\Program1\Program1\bin\Debug\net8.0-windows\Program1.dll
+C:\Users\mmmal\source\repos\Program1\Program1\bin\Debug\net8.0-windows\Program1.pdb
+C:\Users\mmmal\source\repos\Program1\Program1\obj\Debug\net8.0-windows\Program1.Form1.resources
+C:\Users\mmmal\source\repos\Program1\Program1\obj\Debug\net8.0-windows\Program1.csproj.GenerateResource.cache
+C:\Users\mmmal\source\repos\Program1\Program1\obj\Debug\net8.0-windows\Program1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mmmal\source\repos\Program1\Program1\obj\Debug\net8.0-windows\Program1.AssemblyInfoInputs.cache
+C:\Users\mmmal\source\repos\Program1\Program1\obj\Debug\net8.0-windows\Program1.AssemblyInfo.cs
+C:\Users\mmmal\source\repos\Program1\Program1\obj\Debug\net8.0-windows\Program1.csproj.CoreCompileInputs.cache
+C:\Users\mmmal\source\repos\Program1\Program1\obj\Debug\net8.0-windows\Program1.dll
+C:\Users\mmmal\source\repos\Program1\Program1\obj\Debug\net8.0-windows\refint\Program1.dll
+C:\Users\mmmal\source\repos\Program1\Program1\obj\Debug\net8.0-windows\Program1.pdb
+C:\Users\mmmal\source\repos\Program1\Program1\obj\Debug\net8.0-windows\Program1.genruntimeconfig.cache
+C:\Users\mmmal\source\repos\Program1\Program1\obj\Debug\net8.0-windows\ref\Program1.dll
+C:\Users\mmmal\source\repos\Program1\Program1\obj\Debug\net8.0-windows\Program1.Form2.resources
